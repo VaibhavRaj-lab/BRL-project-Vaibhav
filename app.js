@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
 
-app.post("/addname", (req, res) => {
+app.post("/addnameandemail", (req, res) => {
     var myData = new User(req.body);
     myData.save()
         .then(item => {
