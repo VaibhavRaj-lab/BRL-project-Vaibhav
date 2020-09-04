@@ -8,11 +8,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://vaibhav:vaibhav@cluster0-shard-00-00.rk1ef.mongodb.net:27017,cluster0-shard-00-01.rk1ef.mongodb.net:27017,cluster0-shard-00-02.rk1ef.mongodb.net:27017/vaibhav?ssl=true&replicaSet=atlas-7mghhz-shard-0&authSource=admin&retryWrites=true&w=majority",{ useUnifiedTopology: true, useNewUrlParser:true});
-var nameSchema = new mongoose.Schema({
+var UserSchema = new mongoose.Schema({
     firstName: String,
-    lastName: String
+    lastName: String,
+    email: String
 });
-var User = mongoose.model("User", nameSchema);
+var User = mongoose.model("User", UserSchema);
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
